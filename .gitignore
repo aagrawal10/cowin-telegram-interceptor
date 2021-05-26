@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Used by docker for storage
+/.idea/
+/tmp/
+run.sh
+/cowin_telegram/

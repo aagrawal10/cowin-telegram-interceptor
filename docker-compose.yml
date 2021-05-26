@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  telegram_interceptor:
+    image: cowin_telegram_interceptor:latest
+    tty: true
+    volumes:
+    - ./tmp:/tmp/
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        telegram_api_id: ${TELEGRAM_API_ID:?"TELEGRAM_API_ID environ must be set"}
+        telegram_api_hash: ${TELEGRAM_API_HASH:?"TELEGRAM_API_HASH environ must be set"}
+        telegram_number: ${TELEGRAM_NUMBER:?"TELEGRAM_NUMBER environ must be set"}
+        db_encryption_key: ${DB_ENCRYPTION_KEY:?"DB_ENCRYPTION_KEY environ must be set"}
